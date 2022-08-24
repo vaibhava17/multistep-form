@@ -9,7 +9,7 @@ function App() {
     <div className="app">
       <Router>
         <Routes>
-          <Route path="/" exact element={<MultiStepForm/>} />
+          <Route path="/multistep-form" exact element={<MultiStepForm/>} />
           <Route path="/phone-verification" element={<PhoneOTPVerification />}/>
         </Routes>
       </Router>
