@@ -1,4 +1,4 @@
-# Multistep Form
+# Multistep Form [![Build](https://github.com/vaibhava17/multistep-form/actions/workflows/deploy.yml/badge.svg)](https://github.com/vaibhava17/multistep-form/actions/workflows/deploy.yml)
 
 This repository contains a small step form built using React and Ant Design Library.
 
