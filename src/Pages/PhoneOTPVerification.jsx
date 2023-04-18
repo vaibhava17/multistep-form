@@ -6,7 +6,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 const validationSchema = Yup.object().shape({
-  otp: Yup.string().required("Please enter your OTP"),
+  otp: Yup.string().max(4, "Invalid OTP").required("Please enter your OTP"),
 });
 
 function PhoneOTPVerification() {
@@ -77,6 +77,7 @@ function PhoneOTPVerification() {
                   name="otp"
                   type="text"
                 />
+                <Typography.Text type="secondary">{errors.otp && "Default OTP is 1234"}</Typography.Text>
               </Col>
               <Col span={24} className="text-center">
                 <AppButton
@@ -96,7 +97,7 @@ function PhoneOTPVerification() {
         onCancel={handleSuccessCancel}
       >
         <div style={divStyle}>
-          <Typography.Title level={4}>{localStorage.getItem("phonenumber")} ✅</Typography.Title>
+          <Typography.Title level={4}>{localStorage.getItem("phonenumber")} <span role="img" aria-label="right">✅</span></Typography.Title>
           <Typography.Text>{localStorage.getItem("firstName") + " " + localStorage.getItem("lastName")}, You have successfully verified your contact number.</Typography.Text>
           <AppButton label={"Cool"} onClick={handleSuccessCancel} />
         </div>
@@ -108,7 +109,7 @@ function PhoneOTPVerification() {
         onCancel={handleErrorCancel}
       >
         <div style={divStyle}>
-          <Typography.Title level={4}>{localStorage.getItem("phonenumber")} ❌</Typography.Title>
+          <Typography.Title level={4}>{localStorage.getItem("phonenumber")} <span role="img" aria-label="wrong">❌</span></Typography.Title>
           <Typography.Text>{localStorage.getItem("firstName") + " " + localStorage.getItem("lastName")}, You have entered invalid otp.</Typography.Text>
           <Typography.Text>Verification Failed! Please try again.</Typography.Text>
           <AppButton label={"Ok"} onClick={handleErrorCancel} />
